@@ -9,17 +9,21 @@ $d = @{n='d'; e={ $_.group[0].processname} }
 $c = @{n='c'; e = "Count"}
 e = "Count"
 
+### sort-object @{Expression='columnName'; descending=fase},@{...2nd...}
+
 ./3.ps1 | Group-Object timewindow,devicename,processname |
 Select-Object $t, $d, $c | Sort-Object 't','c' | less
 
-# ./3.ps1 | Group-Object timewindow,devicename,processname |
-# Select-Object $t, $d, $c | Sort-Object @{e='t'},@{e='c'; descending=$true} | less
+### ./3.ps1 | Group-Object timewindow,devicename,processname |
+###     Select-Object $t, $d, $c | Sort-Object @{e='t'},@{e='c'; descending=$true} | less
+
+
 ```
 ./3.ps1 | Group-Object timeWindow 
 	| Select-Object @{Name='nName'; expression='name'},
 			@{name='xxx'; expression={ $_.group.processName | sort-object -Descending }}
 
-sort-object @{Expression='columnName'; descending=fase},@{...2nd...}
+
 $data = @(
 
 	[pscustomobject]@{FirstName='Kevin';LastName='Marquette'}
@@ -130,3 +134,31 @@ l----           9/21/2021  4:48 PM                sbin -> /usr/sbin
 l----           9/21/2021  4:48 PM                libx32 -> /usr/libx32
 l----           9/21/2021  4:48 PM                bin -> /usr/bin
 ```
+1. variable start with $
+
+2. variable is object type
+
+3. create variable   $name = "xxx"
+
+4. $var.GETType(), string is object
+
+5. data type like java/c#/.Net
+
+6. del variable:i --> delete var
+
+7. [int16]$i = 1, declare with data type
+
+8. $a = [float]$b, convert data type
+
+9. $i = "100"; $j = [int]::Parse($i)
+
+10. $a = ls
+
+11. Array index start from 0
+
+        $arr1 = "hello","hello"
+        $arr1 += "go"
+        $arr2 = 1..10
+
+12. program flow contorl : if, switch, for, foreach, while
+                                                                        30,1          Bot
